@@ -1,37 +1,107 @@
 <template name="Footer">
-	{{#if footer.enabled}}
-	<div class="footerClass">
-      <div class="mdl-grid" style="margin-left: 10px;">
+  {{#if footer.enabled}}
+  <div class="footerClass">
+    <div class="mdl-grid" style="margin-left: 5%;">
 
-        <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-          <h4 class="title">About Sarai</h4>
-          {{footer.text}}<br />
-          <img src="{{footer.img}}" height="80px" style="margin-top: 20px;" />
+      <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+        <h4 class="title">About SARAi</h4>
+        {{{footer.text}}}
+        <!-- <img src="layout/dost-pcaarrd-uplb.png" height="80px; width=100%;" style="margin-top: 20px;" /> -->
+        <a href="http://www.dost.gov.ph/" title="DOST">
+          <img src="layout/dost.png" class="logos-class">
+        </a>
+        <a href="http://www.pcaarrd.dost.gov.ph/home/portal/" title="PCAARRD">
+          <img src="layout/pcaarrd.png" class="logos-class">
+        </a>
+        <a href="http://www.uplb.edu.ph/" title="UPLB">
+          <img src="layout/uplb.png" class="logos-class">
+        </a>
+      </div>
+
+      <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+        <h4 class="title">Connect With Us</h4>
+
+
+        <div class="footer-contact-line">
+          <div class="footer-contact-icon">
+            <i class="material-icons">call</i>
+          </div>
+          <span>
+            {{contactinfo.number}}
+          </span>
         </div>
 
-        <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-          <h4 class="title">Stay Connected</h4>
-          <ul>
-            <span><img src='/footer-icons/call.png' width="30px" height="30px"> {{contactinfo.number}}</span><br />
-            <span><img src='/footer-icons/mail.png' width="30px" height="30px"><a href="{{contactinfo.mailhref}}"> {{contactinfo.mailname}}</a></span><br />
-            <span><img src='/footer-icons/location.png' width="30px" height="30px"> {{contactinfo.location}}</span>
-          </ul>
+        <div class="clear-float"></div>
+
+        <div class="footer-contact-line">
+          <div class="footer-contact-icon">
+            <i class="material-icons">email</i>
+          </div>
+          <span>
+            {{contactinfo.mailname}}
+          </span>
         </div>
 
-        <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
-          <h4 class="title">Get Involved</h4>
-          {{#each sharelinks}}
-            <span><a href="{{href}}" class="{{class_name}}"><img src="{{img}}" class="logoClass"/></a></span>
-          {{/each}}
+        <div class="footer-contact-line">
+          <div class="footer-contact-icon">
+            <i class="material-icons">location_on</i>
+          </div>
+          <span>
+            {{contactinfo.location}}
+          </span>
+        </div>
+
+        <div class="social-media">
+          <a href="https://www.facebook.com/projectsarai/" title="Facebook"><div class="get-involved-icon" id="facebook-icon">
+            <i class="fa fa-facebook"></i>
+          </div></a>
+
+          <a href="https://twitter.com/projectsarai_ph" title="Twitter"><div class="get-involved-icon" id="twitter-icon">
+            <i class="fa fa-twitter"></i>
+          </div></a>
+
+          <a href="https://www.youtube.com/channel/UCJtzNfVmoqFZGCF326VaTZw" title="Youtube"><div class="get-involved-icon" id="youtube-icon">
+            <i class="fa fa-youtube-play"></i>
+          </div></a>
         </div>
 
       </div>
 
-      <div class="mdl-cell mdl-cell--12-col">
-        <ul>
-          <span>Copyright 2016 - Project SARAI</span>
-        </ul>
+      <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+        <h4 class="title">Site Map</h4>
+        <div class="mdl-grid mdl-grid--no-spacing mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+          <div class="mdl-cell mdl-cell--3-col-desktop mdl-cell--3-col-tablet mdl-cell--3-col-phone">
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="list-style: none; padding-left: 0;"><a href="/about-us" class="footer-links">SARAi</a></li>
+              <li style="list-style: none; padding-left: 0;">Crops</li>
+              <li style="list-style: none; padding-left: 0;">Maps</li>
+              <li style="list-style: none; padding-left: 0;">Services</li>
+            </ul>
+          </div>
+
+          <div class="mdl-cell mdl-cell--5-col-desktop mdl-cell--5-col-tablet mdl-cell--5-col-phone">
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="list-style: none; padding-left: 0;">Alerts and Advisories</li>
+              <li style="list-style: none; padding-left: 0;"><a href="pests.sarai.ph" class="footer-links">SPId Tech</a></li>
+              <li style="list-style: none; padding-left: 0;">Monitoring</li>
+              <li style="list-style: none; padding-left: 0;"><a href="http://opendata.sarai.ph" class="footer-links">Open Data</a></li>
+            </ul>
+          </div>
+
+          <div class="mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--4-col-phone">
+            <li style="list-style: none; padding-left: 0;"><a href="http://202.92.144.44/index.php?option=com_content&view=article&id=64&Itemid=321" class="footer-links">Planting Guide</a></li>
+            <li style="list-style: none; padding-left: 0;"><a href="http://eskwela.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319" class="footer-links">SARAi Eskwela</a></li>
+            <li style="list-style: none; padding-left: 0;"><a href="https://goo.gl/forms/i4jW7LshCSQpuyZ23" class="footer-links">Subscribe</a></li>
+          </div>
+
+        </div>
       </div>
+
+      <div class="col-md-12 col-sm-12 col-xs-12 mdl-cell mdl-cell--12-col-desktop mdl-cell--12-col-tablet mdl-cell--12-col-phone"  style="margin-bottom: -0.5em;">
+        <span>Copyright 2017 - Project SARAi</span>
+      </div>
+
+    </div>
     </div>
    {{/if}}
 </template>

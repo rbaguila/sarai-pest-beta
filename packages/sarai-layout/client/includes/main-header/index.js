@@ -3,17 +3,31 @@ Template.MainHeader.helpers({
     //return Home.find({'title': 'Hello World'});
     return Main.find({'name': 'topHeader'}).fetch()[0];
   },
-  links: function(){
-    var obj = Main.findOne({'name': 'mainHeader'});
-    if(typeof obj !== 'undefined'){
-      return obj.links;
+  mainLinks: function(){
+    var obj = Main.findOne({'name': 'mainHeader'}, {sort: {rank: 1}});
+
+    if (obj) {
+      return sortByRank(obj.links)
     }
   },
+
   mainH: function(){
-    var obj = Main.findOne({'name' : 'mainHeader'});
+    var obj = Main.findOne({'name' : 'mainHeader'}, {sort: {rank: 1}});
     if(typeof obj !== 'undefined'){
       return obj;
     }
+  },
+
+  hasSubLinks: (mainLink) => {
+    if (mainLink.links && mainLink.links.length > 0) {
+      return true
+    } else {
+      return false
+    }
+  },
+
+  sortByRank: (links) => {
+    return sortByRank(links)
   },
   configureAccountType: function(){
     if (!Meteor.user().profile){
@@ -37,3 +51,11 @@ Template._loginButtonsLoggedInDropdownActions.onRendered(function(){
       FlowRouter.go("/pests-manage-account");
     });
 });
+
+sortByRank = (items) => {
+  const sorted = items.sort((a, b) => {
+    return a.rank - b.rank
+  })
+
+  return sorted
+}

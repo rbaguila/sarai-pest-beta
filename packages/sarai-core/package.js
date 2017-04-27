@@ -31,7 +31,7 @@ Package.onUse(function(api) {
     "sarai:sarai-assistance-result-data",
     "sarai:sarai-report-data",
     "sarai:sarai-images-data",
-    // "sarai:sarai-main-data",
+    "sarai:sarai-main-data",
     "sarai:sarai-services-data",
     // "sarai:sarai-blog-data",
     "sarai:sarai-pests-report-data"

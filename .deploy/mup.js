@@ -70,7 +70,7 @@ module.exports = {
 
   meteor: {
     name: 'spid',
-    path: '~/Desktop/Desktop/meteor-projects/sarai',
+    path: '~/Desktop/sarai',
     servers: {
       one: {}
     },

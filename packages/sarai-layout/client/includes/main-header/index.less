@@ -1,19 +1,97 @@
-.customized {
-	text-transform: none;
+#navA{
+
 }
 
 .mdl-layout__tab-bar-button{
 	background-color: #396834;
 }
 
-.my-header {
-  justify-content: flex-end !important;
+#my-header{
+	background-color: rgba(255,255,255,0.5);
 }
 
-.navClass {
-	height: 100px;
+#navClass {
+	height: 65px;
+	background-color: rgba(255,255,255,0.5);
 }
 
-.mdl-layout-spacer{
-	text-align: right;
+img.main-logo {
+  height: 50px;
+  width: auto;
+}
+
+a.main-header-top-link,
+a.main-header-top-link:hover {
+  text-decoration: none;
+}
+
+#home-link, #about-us-link, #explore-link, #planning-dates-link, #dss-link, #get-involved-link, #contact-us-link {
+	color: #FFF;
+	font-size: 100%;
+	position: relative;
+	font-weight: 500;
+	padding: 0px 15px 0px 15px;
+}
+
+.sublinkclass{
+	color: #6C6B6B;
+	font-size: 100%;
+	position: relative;
+	font-weight: 500;
+	padding: 0px 15px 0px 15px;
+}
+
+
+#home-link:hover, #about-us-link:hover, #explore-link:hover, #planning-dates-link:hover, #dss-link:hover, #get-involved-link:hover, .sublinkclass:hover, #contact-us-link:hover, #home-link:active, #about-us-link:active, #explore-link:active, #planning-dates-link:active, #dss-link:active, #get-involved-link:active, .sublinkclass:active, #contact-us-link:active {
+	color: #59B060;
+	font-size: 100%;
+	cursor: pointer;
+	-webkit-transition: color 1s ease-out;
+	-moz-transition: color 1s ease-out;
+	-o-transition: color 1s ease-out;
+	transition: color 1s ease-out;
+}
+#home-link:after, #about-us-link:after, #explore-link:after, #planning-dates-link:after, #dss-link:after, #get-involved-link:after, #contact-us-link:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  /*background-color: #59B060;*/
+  content: "";
+  transition: width 0.2s;
+}
+#home-link:hover:after, #about-us-link:hover:after, #explore-link:hover:after, #planning-dates-link:hover:after, #dss-link:hover:after, #get-involved-link:hover:after, #contact-us-link:after {
+  width: 100%;
+}
+
+#versionbutton{
+	background-color: #FFC131;
+	color: #484848;
+	font-size: 15px;
+	font-weight: bold;
+	/*height: 50px; width: 175px;*/
+	border-radius: 5px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#versionbutton:hover, #versionbutton:active{
+	background-color: #2A2A2A;
+	color: white;
+	cursor: pointer;
+	-webkit-transition: color 2s ease-out;
+	-moz-transition: color 2s ease-out;
+	-o-transition: color 2s ease-out;
+	transition: color 2s ease-out;
+}
+
+img.dost-pcaarrd-uplb-logo {
+  margin-right:1em;
+  height: 50px;
+  width: auto;
+}
+
+.mdl-navigation__link .material-icons {
+    vertical-align: middle;
 }
