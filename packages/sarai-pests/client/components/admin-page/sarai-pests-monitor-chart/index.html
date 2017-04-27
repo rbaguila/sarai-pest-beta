@@ -1,0 +1,44 @@
+<template name="SaraiPestsSpidMonitorChart">
+	{{isAuthorized "Update SPId"}}
+	{{> CMSModuleHeader navBarFor = "Pest Home"}}
+
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--12-col">
+			{{ >monitorChart}}
+		</div>
+	</div>
+	
+</template>
+
+
+<template name="monitorChart"> 
+	<div class="mdl-grid">
+		<div id="monitor-chart" class="mdl-cell mdl-cell--10-col">
+			{{> highchartsPCHelper chartId="monitor-chart" chartObject=monitorChart}}
+		</div>
+
+		<div class="mdl-cell mdl-cell--2-col" style="height: 500px;">
+			<h3 style="color:#777777;">Pests Statistics Made Available</h3>
+			<a href="{{pathFor '/pests-statistics'}}"><button id="statBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">VIEW STATISTICAL REPORTS</button></a>
+		</div>
+	</div>
+	<hr/>
+	<div class="mdl-grid">
+		<div id="number-chart" class="mdl-cell mdl-cell--6-col">
+			{{> highchartsPCHelper chartId="number-chart" chartObject=numberChart}}
+		</div>
+
+		<div id="most-viewed-chart" class="mdl-cell mdl-cell--6-col">
+			{{> highchartsPCHelper chartId="most-viewed-chart" chartObject=mostViewedChart}}
+		</div>
+	</div>
+
+</template>
+
+
+
+<template name="highchartsPCHelper">
+
+	<div id="{{chartId}}" style="height: {{chartHeight}}; width: {{chartWidth}}"></div>
+
+</template>

@@ -1,0 +1,25 @@
+<template name="ManageAccount">
+  {{isAuthorized "Manage Account"}}
+	<form class="manage-account-form">
+    <h3>Request for Account Changes</h3>
+    <h4>Select Administrator Privilege/s</h4>
+    <div class="mdl-cell mdl-cell--2-col bottom-space-1">
+      {{#each userRole}}
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+          <input type="checkbox" class="mdl-checkbox__input" value="{{this}}" checked="{{isChecked this}}" />
+          <span class="mdl-checkbox__label">{{this}}</span>
+        </label>
+      {{/each}}
+    </div>
+
+    <div class="mdl-cell mdl-cell--12-col bottom-space-2">
+      <button id="delete-account" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Delete Account</button>
+    </div>
+       
+    <div class="mdl-cell mdl-cell--12-col">
+      <!-- clicking this will actually change the account role as of now! it should only be able to send request to UserRequest collection -->
+      <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="submit" name="change-account" value="Request Changes" />
+      <button id="cancel" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Cancel</button>
+    </div>
+   </form>
+</template>

@@ -1,0 +1,316 @@
+<template name="SaraiPests">
+	<div id="banner">
+  		<img class="banner-image-sarai" src="{{imageURL}}">
+  		<div class="banner-content-top-sarai" style="{{setBannerContentPosition}}">
+  			<div class="mdl-grid" >
+				<div class="mdl-cell mdl-cell--5-col banner-text" id="bannerText-sarai">
+					{{#each bannerInfo}}
+						<h2 class="title">{{bannerHeadText}}</h2>
+						<h4 class="title-desc">{{bannerSubText}}</h4>
+					{{/each}}
+				</div>
+
+				<div class="mdl-cell mdl-cell--7-col services-icons">	
+					<div class="mdl-grid">
+						<!-- Pest Lib -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-lib'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_library.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest ID -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-id'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_id.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest Monitoring -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-monitor'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_monitoring.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest Clinic -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-clinic'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_clinic.png" />
+								
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Pest Risk Map-->
+	<div id="pest-map">
+		<h4 style="margin-left:20px;"><!-- {{row1HeadText}} --> Pest Introductory Video</h4>
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--6-col alerts">
+				<!-- <img src="{{row1Image1}}" /> -->
+				<center><iframe width="560" height="315" src="https://www.youtube.com/embed/ufbDj5OEVPU" frameborder="0" allowfullscreen></iframe>
+			  <h4>Filipino Version</h4>
+				</center>
+			</div>
+			<div class="mdl-cell mdl-cell--6-col alerts">
+				<!-- <img src="{{row1Image2}}" /> -->
+				<center><iframe width="560" height="315" src="https://www.youtube.com/embed/ln7a57YZtjw" frameborder="0" allowfullscreen></iframe>
+			  <h4>English Version</h4>
+				</center>
+			</div>
+		</div>
+	</div>
+
+	<hr/>
+	{{> Control}}
+	<hr/>
+
+	{{> MostViewedPest}}
+	<hr/>
+
+	<!--Pest Lib-->
+	<div id="pest-lib">
+		<h4 style="margin-left:20px;">{{row3HeadText}}</h4>
+		<h5 style="margin-left:20px;">{{row3SubText}}</h5>
+		
+		<div class="mdl-grid">
+			{{#each pests}}
+				<div class="mdl-cell mdl-cell--3-col">
+					<div class="demo-card-image mdl-card mdl-shadow--2dp">
+					 	<div class="mdl-card__title mdl-card--expand">
+					  		<div class="pest-image">
+								<img src="{{image}}" width="200px;" height="200px;"/>
+					  		</div>
+					  	</div>
+					  
+					  	<div class="card-title">
+					  		<div class="mdl-card__actions">
+						 		<span class="demo-card-image__filename">{{name}}</span>
+					  		</div>
+					  	</div>
+					  
+					  	<div class="mdl-card__actions mdl-card--border">
+					  		<div class = "card-button">
+								<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{pathFor '/entity/:_id' _id=_id}}">
+									View Page
+							 	</a>
+							</div>
+					  	</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+
+		<div class="mdl-cell mdl-cell--12-col">
+			<center>
+				<a id="view-more" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+					View More Pests
+		 		</a>
+		 	</center>
+		</div>
+	</div>
+</template>
+
+
+<template name="Control">
+	<div class="max control-bg spacing-grid mdl-card">
+		<br/><br/>
+		
+		<div class="mdl-grid">
+			<div class=" mdl-typography--display-1" style="color:#396834"><b>{{row2HeadText}}</b></div>
+			<!--h3 class="title font-body header-text">PEST CONTROL STEPS</h3--><br/>
+		</div>
+
+		<br/><br/>
+		
+		<div class="mdl-grid">
+			<div class="max card mdl-cell mdl-cell-3-col" style="padding-right:10px;border-right: 1px solid #eee;">	
+				<img src="/packages/sarai_sarai-pests/public/images/clinic/id_black.png" width="150px;" height="150px;"/>
+				<h4 class="subtitle mdl-typography--headline" style="color:#396834">
+					<b>Identify Pest</b>
+				</h4>
+
+				<br/>
+				
+				<p>If you haven't spotted your pest yet, look for the signs and damages done.</p>
+				<!--p>You might want to <a href="/pestClinic/identify">identify the pest</a> by clicking the link.</p-->
+			</div>
+			<!--img src="/packages/sarai_sarai-pests/public/images/clinic/div-vertical.png" width="30px;" height="450px;"/-->
+
+			<div class="max card mdl-cell mdl-cell--3-col" style="padding-right:10px;border-right: 1px solid #eee;">	
+				<img src="/packages/sarai_sarai-pests/public/images/clinic/comp_black.png" width="150px;" height="150px;"/>
+				<h4 class="subtitle mdl-typography--headline" style="color:#396834">
+					<b>Research Pest</b>
+				</h4>
+				
+				<br/>
+				
+				<p>Look for existing data about the pest. <!--You might want to try our <a href="/pestClinic/factsheet">library</a>.--></p>
+			</div>
+			<!--img src="/packages/sarai_sarai-pests/public/images/clinic/div-vertical.png" width="30px;" height="450px;"/-->
+
+			<div class="max card mdl-cell mdl-cell--3-col" style="padding-right:10px;border-right: 1px solid #eee;">	
+				<img src="/packages/sarai_sarai-pests/public/images/clinic/assess_black.png" width="150px;" height="150px;"/>
+				<h4 class="subtitle mdl-typography--headline" style="color:#396834" >
+					<b>Assess Pest</b>
+				</h4>
+				
+				<p></p>
+				
+				<br/>
+				
+				<p>If you are not sure and want to consult to a specialist, <a href="#" style="color:#396834">request assistance</a>.</p>
+			</div>
+			<!--img src="/packages/sarai_sarai-pests/public/images/clinic/div-vertical.png" width="30px;" height="450px;"/-->
+
+			<div class="max card mdl-cell mdl-cell--3-col">	
+				<img src="/packages/sarai_sarai-pests/public/images/clinic/control_black.png" width="150px;" height="150px;"/>
+				<h4 class="subtitle mdl-typography--headline" style="color:#396834">
+					<b>Restrain Pest</b>
+				</h4>
+				
+				<br/>
+				
+				<p>Use proper technique to eradicate pests in a cheaper and more successful approach.</p>
+			</div>
+		</div>
+		<br/>
+	</div>
+</template>
+
+
+<template name="MostViewedPest">
+	<div class="max mdl-grid" style="background-color:white;height:2px;padding:0px 0px 0px 0px;"></div>
+
+	<div class="max  spacing-grid mdl-grid" style="padding:0px 0px 0px 0px;">
+		<div class="mdl-cell mdl-cell--8-col" style="margin-top:0px;margin-bottom:0px;margin-left:0px;">
+			<div class="max mdl-card">
+				<div class="about-bound mdl-grid">
+					<div class="mdl-grid max">
+						<p>
+							<b><h3 class="left" style="color:#396834; text-align:center;">MOST VIEWED PEST</h3></b>
+						</p>
+					</div>
+					
+					<div class="mdl-grid">
+		            	<div class="mdl-cell mdl-cell--4-col pest-image-most">
+	            			<img src="/images/pests/BlackArmywormadult.jpg" height="270" width="270">
+		            	</div>
+
+			            <div class="mdl-cell mdl-cell--8-col pest-info-most">
+			              	<h5>Black Armyworm adult</h5>
+			            	<p>
+			            		<b>English Name:</b> African Armyworm, Black Armyworm, Nutgrass Armyworm, True Armyworm, Hail Worm, Mystery Armyworm, Rain Worm 
+			            		<br>
+			            		<b>Filipino Name</b>: Harabas 
+			            		<br>
+						    	<b>Scientific Name</b>: 
+						    	<i>Spodoptera exempta (Walker)/Mythimna separata Walker/Spodoptera mauritia Boisduval</i>
+						    	<br>
+						    	<b>Plant Affected</b>: Rice
+						    </p>
+			              	
+			              	<p class="left-align">
+			              		<a href="/entity/pMYXiT8K7sQPzSwKP">View Page</a>
+			              	</p>
+			            </div>
+			        </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mdl-cell mdl-cell--4-col" style="margin-top:0px;margin-bottom:0px;">
+			<div class="max mdl-card text-bg-white">
+				{{ >AccessModules}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+
+
+<template name="AccessModules">
+	<div class="mdl-grid max"><p><b><h3 class="left" style="color:#396834">OUR SERVICES</h3></b></p></div>
+	
+	<div class="max mdl-grid">
+		<div id="link1" class="link mdl-cell mdl-cell--10-col">
+			<a href="{{pathFor '/pests-lib'}}" id="link-1" class="link-1 pcindex-svc-offered-link">
+				<p class="left space">
+					<b class="pcindex-svc-offered-subtitle pcindex-svc-color">View Pest: </b>
+					<span class="pcindex-svc-offered-text"> Browse our Pest Library </span>
+				</p>
+			</a>
+		</div>
+		
+		<div class="mdl-cell mdl-cell--2-col">
+			<a href = "{{pathFor '/pests-lib'}}">
+				<i class="right material-icons md-48 margin pcindex-svc-color">chevron_right</i>
+			</a>
+		</div>
+	</div>
+
+	<hr/>
+	
+	<div class="max mdl-grid">
+		<div id="link2" class="mdl-cell mdl-cell--10-col">
+			<a href="{{pathFor '/pests-id'}}" id="link-2" class="link-2 pcindex-svc-offered-link">
+				<p class="left space">
+					<b class="pcindex-svc-offered-subtitle pcindex-svc-color">Identify Pest: </b>
+					<span class="pcindex-svc-offered-text"> Visit the Pest Identification</span>
+				</p>
+			</a>
+		</div>
+
+		<div class="mdl-cell mdl-cell--2-col">
+			<a href = "{{pathFor '/pests-id'}}">
+				<i class="right material-icons md-48 margin pcindex-svc-color">chevron_right</i>
+			</a>
+		</div>
+	</div>
+	
+	<hr/>
+	
+	<div class="max mdl-grid">
+		<div id="link3" class="mdl-cell mdl-cell--10-col">
+			<a href="{{pathFor '/pests-monitor'}}" id="link-3" class="link-3 pcindex-svc-offered-link">
+				<p class="left space">
+					<b class="pcindex-svc-offered-subtitle pcindex-svc-color">Track Pest: </b>
+					<span class="pcindex-svc-offered-text"> Go to our Pest Monitor </span>
+				</p>
+			</a>
+		</div>
+
+		<div class="mdl-cell mdl-cell--2-col">
+			<a href = "{{pathFor '/pests-monitor'}}">
+				<i class="right material-icons md-48 margin pcindex-svc-color">chevron_right</i>
+			</a>
+		</div>
+	</div>
+
+	<hr/>
+	
+	<div class="max mdl-grid">
+		<div id="link4" class="mdl-cell mdl-cell--10-col">
+			<a href="/pests-clinic" id="link-4" class="link-4 pcindex-svc-offered-link">
+				<p class="left space">
+					<b class="pcindex-svc-offered-subtitle pcindex-svc-color">Treat Pest:</b>
+					<span class="pcindex-svc-offered-text"> Check out the Pest Clinic </span>
+				</p>
+			</a>
+		</div>
+
+		<div class="mdl-cell mdl-cell--2-col">
+			<a href = "{{pathFor '/pests-clinic'}}">
+				<i class="right material-icons md-48 margin pcindex-svc-color">chevron_right</i>
+			</a>
+		</div>
+	</div>
+</template>

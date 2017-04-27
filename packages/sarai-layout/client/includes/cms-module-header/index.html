@@ -1,0 +1,10 @@
+<template name="CMSModuleHeader">
+    <div id="navA" class="mdl-layout__header-row mdl-layout--fixed-header" style="background-color: black; margin-top:64px;">
+    		<nav class="android-navigation mdl-navigation">
+          {{#each navBar navBarFor}}
+            <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{{route}}">{{name}}</a>
+          {{/each}}
+
+        </nav>
+    </div>
+</template>

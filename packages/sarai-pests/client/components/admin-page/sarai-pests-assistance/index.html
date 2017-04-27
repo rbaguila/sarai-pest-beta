@@ -1,0 +1,121 @@
+<template name="RequestAssistance">
+	
+	{{isAuthorized "Update Pest Clinic"}}
+	{{> CMSModuleHeader navBarFor = "Pest Clinic"}}
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--6-col" style="overflow-y:auto; overflow-x:hidden; height:480px;">
+			{{> esInput index="assistance" placeholder="Search" class="mdl-textfield__input"}}
+				
+			<div id="load">
+			 	
+			 	{{#ifEsIsSearching index="assistance"}}
+        			<div>{{>spinner}}</div>
+				{{/ifEsIsSearching}}
+				
+				{{#ifEsHasNoResults index="assistance"}}
+				 	<div>No results found</div>
+				 	<div></div>		
+				{{/ifEsHasNoResults}}
+				 
+			<table class="mdl-data-table mdl-js-data-table" style="border-right:none;border-left:none;">
+				<tbody>
+				{{#esEach index="assistance"}}	
+					 <tr style="width:300px;height:50px;">
+						<td class="mdl-data-table__cell--non-numeric">
+							<b>{{user}} </b>{{date}}<br/>
+							{{subjectString subject}}<br/>
+						</td>
+						<td>
+							<button class="msg-btn mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+								<i class="material-icons" id="{{_id}}">email</i>
+							</button>
+							<button class="delete-msg-btn mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+								<i class="material-icons" id="{{_id}}">delete</i>
+							</button>
+						</td>
+					 </tr>
+				{{/esEach}}
+				</tbody>
+			</table>
+			
+			<table class="mdl-data-table mdl-js-data-table" style="border-right:none;border-left:none;">
+			 <tbody>
+			{{#each request}}
+				 <tr style="width:300px;height:50px;">
+					<td class="mdl-data-table__cell--non-numeric">
+						<b>{{user}} </b>{{date}}<br/>
+						{{subjectString subject}}<br/>
+					</td>
+					<!--td>{{date}}</td-->
+					<td>
+						<button class="msg-btn mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+							<i class="material-icons" id="{{_id}}">email</i>
+						</button>
+						<button class="del-btn mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+							<i class="material-icons" id="{{_id}}">delete</i>
+						</button>
+					</td>
+				 </tr>
+			  
+			{{/each}}
+			</tbody>
+			</table>
+			
+			</div>
+			
+		</div>
+		
+		<div class="mdl-cell mdl-cell--6-col">
+			<div class="mdl-grid">
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="subj"></span>
+				</div>
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="uname"></span>
+				</div>
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="date"></span>
+				</div>
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="msg-content"></span>
+				</div>
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="msg-content"></span>
+				</div>
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="ans-req"></span>
+				</div>
+			</div>
+			
+				
+			<div id="ans-admin" class="mdl-grid">
+				<form name="InsightForm" class="InsightForm">
+					<div class="mdl-cell mdl-cell--6-col">
+						<label class="f-left form-text">Subject</label> 
+					</div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<label id="insightTitle-error" class="error" for="insightTitle" style="display: inline;"></label>
+					</div>		
+					<div class="input-fmt mdl-cell mdl-cell--12-col">
+						<input class="input-form" type="text" id="insightTitle" name="insightTitle">
+					</div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<label class="f-left form-text">Message/Insight</label> 
+					</div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<label id="insight-error" class="error" for="insight" style="display: inline;"></label>
+					</div>		
+					<div class="input-fmt mdl-cell mdl-cell--12-col">
+						<textarea class="input-form" type="text" rows="6" id="insight" name="insight"></textarea>	
+					</div>
+					<div class="input-fmt mdl-cell mdl-cell--12-col">
+						<button id="submitAns" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Submit</button>
+						<button id="cancelAns" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Cancel</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+		
+	</div>
+	
+</template>

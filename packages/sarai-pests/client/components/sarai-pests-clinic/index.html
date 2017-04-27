@@ -1,0 +1,270 @@
+<template name="SaraiPestsClinic">
+		
+		{{ >Banner}}
+		
+		<div id="container mdl-layout__content" class="homepage">
+			<div class="side"></div>
+			
+			{{ >About}}
+			<!--div class="max mdl-grid" style="background-color:#396834;height:2px;padding:0px 0px 0px 0px;"></div-->
+			{{ >AccurateDiagnostic}}
+			<!--div class="max mdl-grid" style="background-color:#396834;height:2px;padding:0px 0px 0px 0px;"></div-->
+			<hr/>
+			<!-- {{ >Advert}} -->
+			<!-- <hr/> -->
+			<!--div class="max mdl-grid" style="background-color:#396834;height:2px;padding:0px 0px 0px 0px;"></div-->	
+			<!-- {{ >Control}} -->
+			<!-- <hr/> -->
+			<!--div class="max mdl-grid" style="background-color:#396834;height:2px;padding:0px 0px 0px 0px;"></div-->
+			{{ >Expert}}
+
+			<a href="#" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple" style="background-color:#00b9d8;color:white;">Request Assistance<span class="mdl-button__ripple-container"><span class="mdl-ripple is-animating" style="width: 274.828px; height: 274.828px; transform: translate(-50%, -50%) translate(85px, 7px);"></span></span></a>
+
+			<span id="request-div" class="mdl-shadow--2dp" style="background-color:white;width:500px;">{{>FormRequest}}</span>
+			<span id="success-box" class="mdl-shadow--2dp" style="background-color:white;width:500px;"></span>
+
+		</div>
+</template>
+
+
+
+<template name="Banner">	
+	<div id="banner">
+  	<img class="banner-image-clinic" src="{{imageURL}}">
+  	<div class="banner-content-top-clinic" style="{{setBannerContentPosition}}">
+  		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--5-col banner-text" id="bannerText-clinic">
+				{{#each bannerInfo}}
+				<h2 class="title">{{bannerHeadText}}</h2>
+				<h4 class="title-desc">{{bannerSubText}}</h4>
+				{{/each}}
+			</div>
+
+			<div class="mdl-cell mdl-cell--7-col services-icons">
+					
+					<div class="mdl-grid">
+						<!-- Pest Lib -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-lib'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_library.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest ID -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-id'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_id.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest Monitoring -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-monitor'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_monitoring.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest Clinic -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-clinic'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_clinic.png" />
+								
+							</a>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+	</div>		
+</template>
+
+
+
+
+<template name="About">
+	<div class="max mdl-grid" style="background-color:white;height:2px;padding:0px 0px 0px 0px;"></div>
+	<div class="max  spacing-grid mdl-grid" style="padding:0px 0px 0px 0px;">
+		<div class="mdl-cell mdl-cell--8-col" style="margin-top:0px;margin-bottom:0px;margin-left:0px;">
+				<div class="max mdl-card">
+					<div class="about-bound mdl-grid">
+						<div class="mdl-cell mdl-cell--6-col">
+							<h2 id="concern" >{{#each aboutInfo}}{{rowIHeadText}}{{/each}}</h2>	
+						</div>
+						<div class="about mdl-cell mdl-cell--6-col">
+							<!-- <img src="/packages/sarai_sarai-pests/public/images/clinic/sarai_3.jpg" width="100%" height="350px;"/> -->
+							<img src="{{imageURL}}" width="100%" height="350px;"/>
+						</div>
+					</div>
+				</div>
+		</div>
+		<div class="mdl-cell mdl-cell--4-col" style="margin-top:0px;margin-bottom:0px;">
+				<div class="max mdl-card text-bg-white">
+					{{ >Services}}
+				</div>
+		</div>
+	</div>
+</template>
+
+
+
+<template name="AccurateDiagnostic">
+	<hr/>
+	<div class="max spacing-grid mdl-grid">
+		<div class="mdl-cell mdl-cell--4-col">
+			<div class="mdl-grid">
+				<!--	<img src="/packages/sarai_sarai-pests/public/images/clinic/sarai_2.jpg" width="100%" height="350px;"/> -->
+					<img src="{{imageURL}}" width="100%" height="350px;"/>
+			
+			</div>
+		</div>
+		<div class="mdl-cell mdl-cell--8-col">
+			<div class="mdl-grid" style="color:#777777;">
+					{{#each rowInfo}}
+					<h3 style="color:#777777;">{{rowIIHeadText}}</h3>
+					<h5>{{rowIISubText}}</h5>
+					{{/each}}
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="News">
+	<div class="mdl-grid">
+		{{#each news}}
+		<div class="mdl-cell mdl-cell--3-col" style="border:solid 1px;margin:5 5 5 5">
+			{{title}}<br/>
+			<i>{{date}}</i><br/><br/>
+			{{body}}
+		</div>
+		{{/each}}
+	</div>
+</template>
+
+
+<template name="Expert">
+
+	<center>
+	<div class="bg mdl-grid">
+		<div class="max mdl-cell mdl-cell--12-col" >
+		<div class=" mdl-typography--display-1" style="color:gray"><b>OUR EXPERTS</b></div>
+		</div>
+	</div>
+	</center>
+	
+	<div class="bg max mdl-grid">
+		<div class="mdl-cell mdl-cell--1-col">
+			<!--center><i class="left material-icons md-48 margin">chevron_left</i></center-->
+		</div>
+		<div class="mdl-cell mdl-cell--10-col">
+			<div class="max mdl-grid">
+				{{#each expertInfo}}
+				<div class="mdl-cell mdl-cell--3-col">
+					<center>
+					{{#if profile}}
+						<img class="expert-img" src={{profile}} width="100%" height="261px"/>
+					{{else}}
+						<svg width="200" height="200">
+						<circle cx="100" cy="100" r="80" stroke="green" stroke-width="4" fill="green" />
+						</svg>
+					{{/if}}
+					<br/>
+					<p>
+					<b>{{name}}</b><br/>
+					{{position}}<br/>
+					{{company}}
+					</p>
+					</center>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+		<div class="mdl-cell mdl-cell--1-col">
+			<!--i class="material-icons md-48 margin" float="right;">chevron_right</i-->
+		</div>
+	</div>
+
+</template>
+
+
+
+
+<template name="Services">
+
+	<div class="mdl-grid max"><p><b><h4 class="left" style="color:#396834">OUR SERVICES OFFERED</h4></b></p></div>
+	<div class="max mdl-grid">
+		
+		<div id="link1" class="link mdl-cell mdl-cell--10-col">
+			<a href="/pestClinic/identify" id="link-1" class="link-1 pcindex-svc-offered-link">
+				<p class="left space">
+				<b class="pcindex-svc-offered-subtitle pcindex-svc-color">Identify Pest: </b>
+					<span class="pcindex-svc-offered-text"> Upload a photo of the pest </span>
+				</p>
+			</a>
+		</div>
+		
+		<div class="mdl-cell mdl-cell--2-col">
+		<i class="right material-icons md-48 margin pcindex-svc-color">chevron_right</i>
+		</div>
+	</div>
+	<hr/>
+	<div class="max mdl-grid">
+		<div id="link2" class="mdl-cell mdl-cell--10-col">
+			<a href="/pestClinic/assistance" id="link-2" class="link-2 pcindex-svc-offered-link">
+			<p class="left space">
+				<b class="pcindex-svc-offered-subtitle pcindex-svc-color">Request Assistance: </b>
+				<span class="pcindex-svc-offered-text"> Fill up a form after logging in to your account</span>
+			</p>
+			</a>
+		</div>
+		<div class="mdl-cell mdl-cell--2-col">
+		<i class="right material-icons md-48 margin pcindex-svc-color">chevron_right</i>
+		</div>
+	</div>
+	<hr/>
+	<div class="max mdl-grid">
+		<div id="link3" class="mdl-cell mdl-cell--10-col">
+		<a href="/pestClinic/report" id="link-3" class="link-3 pcindex-svc-offered-link">
+			<p class="left space">
+				<b class="pcindex-svc-offered-subtitle pcindex-svc-color">Report Pest Occurence: </b>
+				<span class="pcindex-svc-offered-text"> </span>
+			</p>
+		</a>
+		</div>
+		<div class="mdl-cell mdl-cell--2-col">
+		<i class="right material-icons md-48 margin pcindex-svc-color">chevron_right</i>
+		</div>
+	</div>
+	<hr/>
+	<div class="max mdl-grid">
+		<div id="link4" class="mdl-cell mdl-cell--10-col">
+		<a href="/pests-form" id="link-4" class="link-4 pcindex-svc-offered-link">
+			<p class="left space">
+				<b class="pcindex-svc-offered-subtitle pcindex-svc-color">Submit Specimen:</b>
+					<span class="pcindex-svc-offered-text"> Send a specimen to the specialists for further research </span>
+			</p>
+		</a>
+		</div>
+		<div class="mdl-cell mdl-cell--2-col">
+		<i class="right material-icons md-48 margin pcindex-svc-color">chevron_right</i>
+		</div>
+	</div>
+	
+</template>
+
+<template name="reactiveChart"> 
+	<div id="charta" class="mdl-grid">
+		<div class="mdl-cell mdl-cell--3-col">
+			<h3 style="color:#777777;">Pests Statistics Made Available</h3>
+			<a href="{{pathFor '/pests-statistics'}}"><button id="statBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">VIEW STATISTICAL REPORTS</button></a>
+		</div>
+		<div id="chartID" class="mdl-cell mdl-cell--9-col">
+			<canvas id="myChart" width="1000" height="500"></canvas>
+			
+			{{render}}
+		</div>
+	</div>
+	
+</template>

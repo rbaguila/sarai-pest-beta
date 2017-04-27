@@ -1,0 +1,22 @@
+<template name="FixedDrawer">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+	  <div class="mdl-layout__drawer">
+	    
+    	<nav class="mdl-navigation">
+    		<a id="SPidCMSTab" class="mdl-navigation__link" href="/pests-spid-update">SPId CMS</a>
+		</nav>
+	    
+	    <nav class="mdl-navigation">
+	      <a id="PestClinicTab" class="mdl-navigation__link" href="/pests-clinic-update">Pest Clinic</a>
+	      <a id="PestLibraryTab" class="mdl-navigation__link" href="/pests-lib-update">Pest Library</a>
+	      <a id="PestIdentificationTab" class="mdl-navigation__link" href="/pests-id-update">Pest Identification</a>
+	      <a id="PestMonitorTab" class="mdl-navigation__link" href="/pests-monitor-update">Pest Monitor</a>
+	    </nav>
+	  </div>
+	  <main class="mdl-layout__content">
+	    <div class="page-content"> 
+	    	{{> Template.dynamic template=main}} 
+	    </div>
+	  </main>
+	</div>
+</template>

@@ -1,0 +1,30 @@
+
+
+
+
+<template name="MainHeader">
+  <header class="mdl-layout__header  main-header" style="background-color: #396834;">
+<!--   {{#if topHeader.enabled}}
+          {{> TopHeader}}
+      {{/if}} -->
+    <div class="mdl-layout__header-row">
+
+      <a href="http://sarai.ph" class="mdl-layout-title alerts-and-advisories-header-title-anchor">            
+        <img src="/packages/sarai_sarai-layout/public/images/SARAI-white.png" height="60px" />    
+      </a>
+
+      <div class="mdl-layout-spacer">
+        {{#if currentUser}}
+          {{configureAccountType}}
+        {{/if}}
+      </div>
+
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <span class="mdl-navigation__link">
+          {{> loginButtons align="right"}}
+        </span>
+      </nav>
+    </div>
+
+  </header>
+</template>

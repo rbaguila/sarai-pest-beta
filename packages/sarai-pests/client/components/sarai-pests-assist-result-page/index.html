@@ -1,0 +1,34 @@
+<template name="AssistResultPage">
+	
+	<div class="mdl-grid mdl-color--grey-100">
+		<div class="mdl-cell mdl-cell--4-col">
+			<div class="mdl-shadow--2dp " style="padding:10px; background-color: white;">
+				<h6>RF No. {{user.control}}<br/>{{user.date}}</h6>
+		    	<h6><b>Subject: </b><br/>{{user.subject}}</h6>
+		    	
+		    	<p><h6><b>Message: </b><br/>{{user.message}}</h6></p>
+		    	
+	    	</div>	
+		</div>
+		
+		<div id="pest-main" class="mdl-cell mdl-cell--8-col">
+			<div class="mdl-grid mdl-shadow--2dp" style="background-color: white;">	
+				<div class="mdl-card mdl-cell mdl-cell--12-col ">
+			       <div style="padding: 10px;">
+			       {{#if result.num}}
+			         <h6><b>Title: </b>{{result.title}}</h6>
+			         <span>{{result.date}}</span>
+			         <h6><b>Admin Response: </b>{{result.body}}</h6>
+			       {{/if}}
+			       {{#if notexist}}
+			       	<h6>Status: Admin has been notified.</h6>	
+			       	<h6>We're sorry but there seems to be a delay on the feedback. Kindly check again later.</h6>
+			       {{/if}}
+			       </div>
+			     </div>
+		 	</div>
+		</div>
+	</div>
+
+</template>
+

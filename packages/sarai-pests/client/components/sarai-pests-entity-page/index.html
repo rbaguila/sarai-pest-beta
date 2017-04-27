@@ -1,0 +1,147 @@
+<template name="EntityPage">
+	<div class  = "container">
+		<div class="mdl-grid mdl-color--grey-100">
+		
+			<div class="mdl-cell mdl-cell--7-col">
+				<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+	  				<!-- Tab bar -->
+	  				<div class="mdl-tabs__tab-bar">
+			    		<a href="#pest-english" class="mdl-tabs__tab">English</a>
+			    		<a href="#pest-filipino" class="mdl-tabs__tab is-active">Filipino</a>
+	  				</div>
+				
+					<!-- English -->
+					<div class="mdl-tabs__panel" id = "pest-english">
+			    		
+			    		<div class="mdl-shadow--2dp entity-card-info">		
+							<h2>How to identify a {{pest.name}}</h2>
+				
+							{{#if pest.symptoms}}	
+								<h4>&emsp;{{pest.symptoms}}</h4>
+							{{/if}}
+
+							<br>
+				
+							{{#if pest.description}}
+								<h4>&emsp;{{pest.description}}</h4>
+							{{/if}}
+			    		</div>
+						
+						{{#if pest.effect}}
+							<div class="mdl-shadow--2dp entity-card-info">
+								<h2>Signs of a {{pest.name}} Infestation</h2>
+								<h4>&emsp;{{pest.effect}}</h4>
+							</div>
+						{{/if}}
+
+
+						{{#if pest.treatment}}
+							<div class="mdl-shadow--2dp entity-card-info">
+								<h2>How to manage {{pest.name}}</h2>
+								<h4>&emsp;{{pest.treatment}}</h4>
+							</div>
+						{{/if}}
+					</div>
+
+					<!-- Filipino -->
+					<div class="mdl-tabs__panel is-active" id = "pest-filipino">
+			    		<div class="mdl-shadow--2dp entity-card-info">		
+							<h2>Paano malalaman ang {{pest.fil_name}}</h2>
+					
+							{{#if pest.fil_symptoms}}	
+								<h4>&emsp;{{pest.fil_symptoms}}</h4>
+							{{/if}}
+
+							<br>
+				
+							{{#if pest.fil_description}}
+								<h4>&emsp;{{pest.fil_description}}</h4>
+							{{/if}}
+			    		</div>
+						
+						{{#if pest.fil_effect}}
+							<div class="mdl-shadow--2dp entity-card-info">	
+								<h2>Mga sinyales na apektado ng {{pest.fil_name}}</h2>
+								<h4>&emsp;{{pest.fil_effect}}</h4>
+							</div>
+						{{/if}}
+					</div>
+				</div>
+			</div>
+			
+			<div class="mdl-cell mdl-cell--5-col entity-right">
+				<div class = "pest-info">
+					<div class="mdl-shadow--2dp entity-pest-image">
+				    	<img class = "entity-pest-image" src="{{pest.image}}"/>
+				    </div>
+
+			    	<div class="mdl-shadow--2dp entity-right-info">
+			       		<h2 class = "pest-name">{{pest.name}}</h2>
+
+			       		<div entity-table-names>
+				       		<table border = 1 width = "100%" class="table-style">
+							  	<tbody>
+							  		<tr>
+							      		<th >Common Names</th>
+							      		<td > {{pest.eng_name}}</td>
+							    	</tr>
+
+							    	<tr>
+								      	<th >Filipino Names</th>
+								     	<td>{{pest.fil_name}}</td>
+							    	</tr>
+
+									<tr>
+								      	<th >Scientific Name</th>
+								     	<td id = "entity-sci-name">{{pest.sci_name}}</td>
+							    	</tr>
+
+							    	<tr>
+								      	<th >Threatening Stage</th>
+								     	<td >{{pest.stage_threatening}}</td>
+							    	</tr>
+
+							    	<tr>
+								      	<th >Plant Affected</th>
+								     	<td >{{pest.plant_affected}}</td>
+							    	</tr>
+							  	</tbody>
+							</table>
+						</div>	
+				    </div>
+			    </div>	
+
+			    <div class="mdl-cell mdl-cell--10-col social-media-icons">
+					
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--2-col social-media-icon">
+							<a href="http://www.facebook.com/sharer.php?u=<your url>{{pathFor '/entity/:_id' _id=_id}}">
+								<img class = "social-media-icon-img" src="/packages/sarai_sarai-pests/public/images/icons/facebook1.png"/>
+							</a>
+						</div>
+
+						<div class="mdl-cell mdl-cell--2-col social-media-icon">
+							<a href="http://www.twitter.com">
+								<img class = "social-media-icon-img" src="/packages/sarai_sarai-pests/public/images/icons/twitter1.png"/>
+							</a>
+						</div>
+
+						<div class="mdl-cell mdl-cell--2-col social-media-icon">
+							<a href = "/packages/sarai_sarai-pests/public/PDF/{{imageName pest.name}}.zip" download>
+							<img class = "social-media-icon-img" src="/packages/sarai_sarai-pests/public/images/icons/download1.png"/>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id = "home-button">
+    		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored" onclick="history.go(-1);">
+			  	<i class="material-icons">arrow_back</i>
+			</button>
+    	</div>
+	</div>
+</template>
+

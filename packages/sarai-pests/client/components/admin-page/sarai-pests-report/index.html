@@ -1,0 +1,43 @@
+<template name="SaraiPestsCreateReport">
+
+	{{isAuthorized "Update Pest Clinic"}}
+	{{> CMSModuleHeader navBarFor = "Pest Clinic"}}	
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--3-col">
+			</div>
+		
+			<div class="mdl-cell mdl-cell--6-col">
+			<div class="mdl-grid">
+			
+			<!-- Report Title Text -->
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Title</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="reptitle-error" class="error" for="reptitle" style="display: inline;"></label>
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<input class="input-form" type="text" id="reptitle" name="reptitle">	
+			</div>
+			
+			<!-- Report Title Text -->
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Body</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="body-error" class="error" for="body" style="display: inline;"></label>
+			</div>		
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<textarea class="input-form" type="text" rows="6" id="body" name="body"></textarea>	
+			</div>
+			
+			<div class="mdl-cell mdl-cell--12-col">		
+			<button id="submitReport" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Submit</button>		
+			</div>	
+			
+			</div>
+			</div>
+		</div>
+		
+</template>
+

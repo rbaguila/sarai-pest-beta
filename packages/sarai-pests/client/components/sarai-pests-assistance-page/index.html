@@ -1,0 +1,89 @@
+<template name="SaraiPestsAssistance">
+	
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cel--6-col">
+		</div>
+		<div class="mdl-cell mdl-cel--6-col">
+		{{>FormRequest}}
+		</div>
+		<div class="mdl-cell mdl-cel--6-col">
+		<div style="background-color:gray;">
+		
+		 </div>
+		 </div>
+	</div>
+	
+</template>
+
+
+<template name="FormRequest">
+
+	<form name="fRequest" class="fRequest">
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Email</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="email-error" class="error" for="floc" style="display: inline;"></label>
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<input class="input-form" type="text" id="email" name="email">	
+			</div>
+			
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Name</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="name-error" class="error" for="floc" style="display: inline;"></label>
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<input class="input-form" type="text" id="name" name="name">	
+			</div>
+			
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Subject </label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="subject-error" class="error" for="floc" style="display: inline;"></label>
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<input class="input-form" type="text" id="subject" name="subject">	
+			</div>
+			
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Problem</label> 
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--6-col">
+			<select id="topic">
+				<option value="Others">Others</option>
+				<option value="Unknown Pest">Unknown Pest</option>
+				{{#each findPest}}
+					<option value="{{name}}">{{name}}</option>
+				{{/each}}
+			</select>
+			</div>
+			
+			
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Message </label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="message-error" class="error" for="floc" style="display: inline;"></label>
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<!--input class="input-form" type="text" id="message" name="message"-->
+				<textarea class="input-form" type="text" rows="4" id="message" name="message"></textarea>	
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+			<center>
+			<button id="submitBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Submit</button>
+			<button id="cancelBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Cancel</button>
+			</center>
+			
+			</div>
+		</div>
+		<br/>
+		
+	</form>
+
+</template>

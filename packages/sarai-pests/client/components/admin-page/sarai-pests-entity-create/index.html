@@ -1,0 +1,238 @@
+<template name="AddEntityDropzone">
+    <div class="mdl-cell mdl-cell--12-col">
+			{{> dropzone fileTypes='.jpg,.png,.jpeg.,.JPG,.PNG' contentType='images' multiple=false formData=specificFormData callbacks=myCallbacks}}
+		</div>
+</template>
+
+<template name="EntityCreate">
+	{{isAuthorized "Update Pest Library"}}
+	{{> CMSModuleHeader navBarFor = "Pest Library"}}
+
+	<div class="mdl-grid">
+		<div class="mdl-grid">
+		<h3> Add Pest </h3>
+		</div>
+	</div>
+
+	<div class="mdl-grid">
+		{{ >AddEntityDropzone}}
+	</div>
+	
+	<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--3-col">
+	</div>
+
+	<div class="mdl-cell mdl-cell--6-col">
+		<form name="updateForm" class="updateForm">
+			<div class="mdl-grid">	
+
+				<!-- name -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Name</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="name" name="name">	
+				</div>
+
+				<!-- type -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Type</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="type" name="type" value="Pest" disabled>	
+				</div>
+				
+				<!-- eng_name -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Common Names</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="common-names" name="common-names">	
+				</div>
+				
+				<!-- fil_name -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Filipino Names</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="filipino-names" name="filipino-names">	
+				</div>
+
+				<!-- sci_name -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Scientific Name</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="scientific-name" name="scientific-name">	
+				</div>
+
+				<!-- order -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Order</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="order" name="order">	
+				</div>
+
+				<!-- classification -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Classification</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="classification" name="classification">	
+				</div>
+
+				<!-- stage_threatening -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Threatening Stage</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="threatening-stage" name="threatening-stage">	
+				</div>
+
+				<!-- plant_affected -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Plant Affected</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="plant-affected" name="plant-affected">	
+				</div>
+
+				<!-- description -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Description</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="description" name="description">
+				</div>
+
+				<!-- symptoms -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Symptoms</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="symptoms" name="symptoms">	
+				</div>
+
+				<!-- effect -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Effect</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="effect" name="effect">	
+				</div>
+
+				<!-- treatment -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Treatment</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="treatment" name="treatment">
+				</div>
+
+				<!-- stage_plant_affected -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Stage Plant Affected</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="stage-plant-affected" name="stage-plant-affected">
+				</div>
+
+				<!-- part_destroyed -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Part Destroyed</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="part-destroyed" name="part-destroyed">	
+				</div>
+
+				<!-- fil_stage_plant_affected -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Stage Plant Affected (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-stage-plant-affected" name="fil-stage-plant-affected" >
+				</div>
+
+				<!-- fil_effect -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Effect (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-effect" name="fil-effect">
+				</div>
+
+				<!-- fil_part_destroyed -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Part Destroyed (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-part-destroyed" name="fil-part-destroyed">	
+				</div>
+
+				<!-- fil_stage_threatening -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Threatening Stage (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-threatening-stage" name="fil-threatening-stage">	
+				</div>
+
+				<!-- fil_symptoms -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Symptoms (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-symptoms" name="fil-symptoms">	
+				</div>
+
+				<!-- fil_description -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Description (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-description" name="fil-description">	
+				</div>
+
+				<!-- fil_plant_affected -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Plant Affected (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-plant-affected" name="fil-plant-affected">	
+				</div>
+
+				<!-- fil_classification -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Classification (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-classification" name="fil-classification">	
+				</div>
+
+				<!-- fil_treatment -->
+				<div class="mdl-cell mdl-cell--6-col">
+					<label class="f-left form-text">Treatment (Filipino)</label> 
+				</div>
+				<div class="input-fmt mdl-cell mdl-cell--12-col">
+					<input class="input-form" type="text" id="fil-treatment" name="fil-treatment">
+				</div>
+
+			</div>
+				
+			<div class="mdl-cell mdl-cell--12-col">
+				<button id="aBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Add</button>
+				<button id="cBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Cancel</button>
+			</div>
+				
+		</form>
+
+	</div>
+
+	</div>
+
+
+</template>
+
+
+

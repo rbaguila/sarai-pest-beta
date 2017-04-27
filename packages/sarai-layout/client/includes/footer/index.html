@@ -1,0 +1,37 @@
+<template name="Footer">
+	{{#if footer.enabled}}
+	<div class="footerClass">
+      <div class="mdl-grid" style="margin-left: 10px;">
+
+        <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+          <h4 class="title">About Sarai</h4>
+          {{footer.text}}<br />
+          <img src="{{footer.img}}" height="80px" style="margin-top: 20px;" />
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+          <h4 class="title">Stay Connected</h4>
+          <ul>
+            <span><img src='/footer-icons/call.png' width="30px" height="30px"> {{contactinfo.number}}</span><br />
+            <span><img src='/footer-icons/mail.png' width="30px" height="30px"><a href="{{contactinfo.mailhref}}"> {{contactinfo.mailname}}</a></span><br />
+            <span><img src='/footer-icons/location.png' width="30px" height="30px"> {{contactinfo.location}}</span>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-sm-4 col-xs-12 mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+          <h4 class="title">Get Involved</h4>
+          {{#each sharelinks}}
+            <span><a href="{{href}}" class="{{class_name}}"><img src="{{img}}" class="logoClass"/></a></span>
+          {{/each}}
+        </div>
+
+      </div>
+
+      <div class="mdl-cell mdl-cell--12-col">
+        <ul>
+          <span>Copyright 2016 - Project SARAI</span>
+        </ul>
+      </div>
+    </div>
+   {{/if}}
+</template>

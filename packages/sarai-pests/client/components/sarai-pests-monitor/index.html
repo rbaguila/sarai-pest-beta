@@ -1,0 +1,114 @@
+<template name="SaraiPestsMonitor">
+		<div id="banner">
+  	<img class="banner-image-monitor" src="{{imageURL}}">
+  		<div class="banner-content-top-monitor" style="{{setBannerContentPosition}}">
+  			<div class="mdl-grid" >
+
+				<div class="mdl-cell mdl-cell--5-col banner-text" id="bannerText-monitor">
+					{{#each bannerInfo}}
+					<h2 class="title">{{bannerHeadText}}</h2>
+					<h4 class="title-desc">{{bannerSubText}}</h4>
+					{{/each}}
+				</div>
+
+				<div class="mdl-cell mdl-cell--7-col services-icons">
+					
+					<div class="mdl-grid">
+						<!-- Pest Lib -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-lib'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_library.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest ID -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-id'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_id.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest Monitoring -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-monitor'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_monitoring.png" />
+								
+							</a>
+						</div>
+
+						<!-- Pest Clinic -->
+						<div class="mdl-cell mdl-cell--3-col">
+							<a href="{{pathFor '/pests-clinic'}}">
+								<img class="service-icon-img" src="/packages/sarai_sarai-pests/public/images/services/pest_clinic.png" />
+								
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<div id="pest-monitor">
+		<div class="mdl-grid" id="choose-pest">
+			<div class="mdl-cell mdl-cell--12-col">
+				<label class="f-left form-text">Choose Pest</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--12-col">
+			   <div class="mdl-select mdl-js-select mdl-select--floating-label">
+			        <select class="mdl-select__input" id="banner-position" name="banner-position">
+			          <option value="BlackArmywormadult">Black Arymworm adult</option>
+			          <option value="BlackArmywormlarva" >Black Arymworm larva</option>
+			          <option value="Katydid">Katydid</option>
+			          <option value="RiceMealyBug">Rice Mealy Bug</option>
+			          <option value="Others">Others</option>
+			        </select>
+			    </div>
+			</div>
+		</div>
+			<h4 style="margin-left:20px;">PEST MONITORING - ARMYWORM</h4>
+
+			<div class="mdl-grid">
+			{{> highmapsHelper chartId="map" chartObject=armywormRiskMap chartHeight="650px" chartWidth="600px"}}
+			{{> PestDescription}}
+			</div>
+			<div class="mdl-grid">
+				{{> highmapsHelper chartId="history" chartObject=armywormHistory chartHeight="650px" chartWidth="600px"}}
+				{{> highmapsHelper chartId="drought-assessment" chartObject=armywormDroughtAssessment chartHeight="650px" chartWidth="600px"}}
+			</div>
+	</div>
+</template>
+
+
+
+
+<template name="highmapsHelper">
+	
+		<div class="mdl-cell mdl-cell--6-col">
+			<div id="{{chartId}}" style="height: {{chartHeight}}; width: {{chartWidth}}"></div>
+		</div>
+
+</template>
+
+<template name="PestDescription">
+	<div class="mdl-cell mdl-cell--6-col pest-info-most">
+		<img src="/images/pests/BlackArmywormadult.jpg" height="270" width="270">
+      	<h5>Black Armyworm adult</h5>
+    	<p>
+    		<b>English Name:</b> African Armyworm, Black Armyworm, Nutgrass Armyworm, True Armyworm, Hail Worm, Mystery Armyworm, Rain Worm 
+    		<br>
+    		<b>Filipino Name</b>: Harabas 
+    		<br>
+	    	<b>Scientific Name</b>: 
+	    	<i>Spodoptera exempta (Walker)/Mythimna separata Walker/Spodoptera mauritia Boisduval</i>
+	    	<br>
+	    	<b>Plant Affected</b>: Rice
+	    </p>
+      	
+      	<p class="left-align">
+      		<a href="/entity/pMYXiT8K7sQPzSwKP">View Page</a>
+      	</p>
+    </div>
+</template>

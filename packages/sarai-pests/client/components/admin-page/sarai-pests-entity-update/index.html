@@ -1,0 +1,44 @@
+<template name="PestPage">
+	{{isAuthorized "Update Pest Library"}}
+	{{> CMSModuleHeader navBarFor = "Pest Library"}}
+	{{> PestTabs}}
+	<div id="add-button">
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+		  	<i class="material-icons">add</i>
+		</button>
+	</div>
+</template>
+
+
+<template name="PestTabs">
+	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+	  	<div class="mdl-tabs__tab-bar">
+	  		{{#each pestType}}
+	    		<a href="#{{rewritePestType}}" class="{{setActiveTab @index}}">{{this}} Pest</a>
+	    	{{/each}}
+	  	</div>
+
+	  	{{#each pestType}}
+	  		<div class="{{setActivePanel @index}}" id="{{rewritePestType}}">
+	  			<div class="mdl-grid">
+	  				<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table-style" align="center">
+					  <tbody>
+					  	{{#each displayPest this}}
+						    <tr class="row-style">
+						      <td class="image-holder">
+						      	<img src="{{image}}" height="46px" width="46px" align="right">
+						      </td>
+						      <td class="mdl-data-table__cell--non-numeric">{{name}}</td>
+						      <td class="mdl-data-table__cell--non-numeric button-holder">
+						      	<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored edit-button"><i class="material-icons" id="{{_id}}">edit</i></button>
+						      	<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored delete-button"><i class="material-icons" name="{{name}}" id="{{_id}}">delete</i></button>
+						      </td>
+						    </tr>
+					    {{/each}}
+					  </tbody>
+					</table>
+	  			</div>
+  			</div>
+	  	{{/each}}
+	</div>
+</template>

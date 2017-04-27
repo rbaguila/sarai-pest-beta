@@ -1,0 +1,118 @@
+<template name="FormsSubmitted">
+	{{isAuthorized "Update Pest Clinic"}}
+	{{> CMSModuleHeader navBarFor = "Pest Clinic"}}
+	<div class="mdl-grid">
+	
+		<div class="mdl-cell md-cell--4-col" style="overflow-y:auto; overflow-x:hidden; height:550px;">
+		
+			{{> esInput index="clinicForm" placeholder="Search" class="mdl-textfield__input"}}
+		
+			{{#ifEsIsSearching index="clinicForm"}}
+        		<div>{{>spinner}}</div>
+			{{/ifEsIsSearching}}
+			
+			{{#ifEsHasNoResults index="clinicForm"}}
+			 	<div>No results found</div>
+			 	<div></div>		
+			{{/ifEsHasNoResults}}
+		
+			<table class="mdl-data-table mdl-js-data-table">
+			<tbody>
+			{{#esEach index="clinicForm"}}
+				 <tr>
+					<td class="mdl-data-table__cell--non-numeric">
+						<b>World {{date}}</b><br/>
+						{{email}}
+					</td>
+					<td>
+						<button class="msg-btn mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+							<i class="material-icons" id="{{_id}}">email</i>
+						
+						
+						</button>
+						<button class="delete-msg-btn mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+							<i class="material-icons" id="{{_id}}">delete</i>
+						</button>
+					</td>
+				 </tr>
+			  
+			{{/esEach}}
+			</tbody>
+			</table>
+
+			<table class="mdl-data-table mdl-js-data-table" style="border-right:none;border-left:none;">
+			<tbody>
+			{{#each form}}
+			  
+				 <tr>
+					<td class="mdl-data-table__cell--non-numeric">Sample {{increment @index}}
+						<b>{{date}}</b><br/>
+						{{email}}
+					</td>
+					<td>
+						<button class="msg-btn mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+							<i class="material-icons" id="{{_id}}">email</i>
+						</button>
+						<button class="delete-msg-btn mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+							<i class="material-icons" id="{{_id}}">delete</i>
+						</button>
+					</td>
+				 </tr>
+			  
+			{{/each}}
+			</tbody>
+			</table>
+		</div>
+		
+		<div class="mdl-cell mdl-cell--8-col">
+			<div class="mdl-grid">
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="genInfoSheet"></span>
+				</div>
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="pestProbSheet"></span>
+				</div>
+				<div class="max mdl-cell mdl-cell--12-col">
+					<span id="addInfoSheet"></span>
+				</div>
+			</div>	
+			
+			
+			
+			<div id="ans-lab" class="mdl-grid">
+				<form name="LabForm" class="LabForm">
+					<div class="mdl-cell mdl-cell--6-col">
+						<label class="f-left form-text">Subject</label> 
+					</div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<label id="labTitle-error" class="error" for="labTitle" style="display: inline;"></label>
+					</div>		
+					<div class="input-fmt mdl-cell mdl-cell--12-col">
+						<input class="input-form" type="text" id="labTitle" name="labTitle">
+					</div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<label class="f-left form-text">Message/Insight</label> 
+					</div>
+					<div class="mdl-cell mdl-cell--6-col">
+						<label id="lab-error" class="error" for="lab" style="display: inline;"></label>
+					</div>		
+					<div class="input-fmt mdl-cell mdl-cell--12-col">
+						<textarea class="input-form" type="text" rows="6" id="lab" name="lab"></textarea>	
+					</div>
+					<div class="input-fmt mdl-cell mdl-cell--12-col">
+						<button id="submitLab" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Submit</button>
+						<button id="cancelLab" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Cancel</button>
+					</div>	
+				</form>
+			</div>
+			
+			
+			
+			
+			
+			
+		</div>
+		
+	</div>
+	
+</template>

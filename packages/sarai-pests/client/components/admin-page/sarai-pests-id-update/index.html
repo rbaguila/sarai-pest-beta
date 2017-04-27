@@ -1,0 +1,90 @@
+<template name="IdDropzone">
+  <div class="mdl-grid">
+      <div id="dropzone" class="dropzone mdl-cell mdl-cel-12--col bannerZone">
+      	  <label class="f-center form-text">Drop Image To Change Banner (960 x 400)</label> 
+      	  <img src="{{banner}}" width="100%" height="300px"/>
+      </div>
+  </div>
+</template>
+
+<template name="SaraiPestsIdUpdatePage">
+	{{isAuthorized "Update Pest Identification"}}
+	{{> CMSModuleHeader navBarFor = "Pest Identification"}}
+	<div class="mdl-grid">
+		{{ >IdDropzone}}
+	</div>
+	
+	<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--3-col">
+	</div>
+	<div class="mdl-cell mdl-cell--6-col">
+	<form name="updateForm" class="updateForm">
+		<div class="mdl-grid">
+			<!-- Banner Content Position -->
+			<div class="mdl-cell mdl-cell--12-col">
+				<label class="f-left form-text">Banner Content Position</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--12-col">
+			   <div class="mdl-select mdl-js-select mdl-select--floating-label">
+			        <select class="mdl-select__input" id="banner-position" name="banner-position">
+			          <option value="top" selected="{{isSelected 'top'}}">Top</option>
+			          <option value="middle" selected="{{isSelected 'middle'}}">Middle</option>
+			          <option value="bottom" selected="{{isSelected 'bottom'}}">Bottom</option>
+			        </select>
+			    </div>
+			</div>
+		
+			<!-- Banner Header Text -->
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Banner Header Text</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="bheader-error" class="error" for="bheader" style="display: inline;"></label>
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<input class="input-form" type="text" id="bheader" name="bheader" value="{{getBannerHText}}">	
+			</div>
+			
+			
+			<!-- Banner Subheader Text -->
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Banner Subheader Text</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="bsubheader-error" class="error" for="b-subheader" style="display: inline;"></label>
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<input class="input-form" type="text" id="bsubheader" name="bsubheader" value="{{getBannerSText}}">	
+			</div>
+
+			<!-- Pest Header Text -->
+			<div class="mdl-cell mdl-cell--6-col">
+				<label class="f-left form-text">Pest Header Text</label> 
+			</div>
+			<div class="mdl-cell mdl-cell--6-col">
+				<label id="pestheader-error" class="error" for="pest-header" style="display: inline;"></label>
+			</div>
+			<div class="input-fmt mdl-cell mdl-cell--12-col">
+				<input class="input-form" type="text" id="pestheader" name="pestheader" value="{{getPestHText}}">	
+			</div>
+			
+		</div>
+			
+
+			
+			
+			
+			
+		<div class="mdl-cell mdl-cell--12-col">
+			<button id="uBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Save</button>
+			<button id="cBtn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Cancel</button>
+			<button id="viewChanges" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">View Changes</button>
+		</div>
+			
+	</form>
+	</div>
+	</div>
+	
+
+</template>
+

@@ -1,0 +1,30 @@
+<template name="TrainPest">
+	{{isAuthorized "Update Pest Library"}}
+	{{> CMSModuleHeader navBarFor = "Pest Library"}}
+		
+		<div class="mdl-cell mdl-cell--12-col">
+			{{> dropzone fileTypes='.jpg,.png,.jpeg.,.JPG,.PNG' contentType='images' multiple=false formData=specificFormData callbacks=myCallbacks}}
+		</div>
+
+
+		<center>
+			<br>
+			
+			<form name="updateForm" class="updateForm">
+				<select id = "pestName" class="mdl-select__input">
+					<option value="" disabled selected>Select the name of pest</option>
+					{{#each pests}}
+				  		<option value="{{name}}" id = "{{name}}">{{name}}</option>
+				  	{{/each}}
+				</select>
+			</form>
+		
+			<br>
+			<div class="mdl-cell mdl-cell--12-col">
+				<button  class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored add" id = "add">Add to Database</button>
+
+			</div>
+		</center>	
+		
+
+</template>

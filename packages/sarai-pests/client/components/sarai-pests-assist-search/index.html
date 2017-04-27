@@ -1,0 +1,76 @@
+<template name="SaraiAssistSearch">
+		
+		<div id="pest-lib">
+			<!--h4 style="margin-left:20px;">Assistance Result</h4-->
+
+			<center>
+			<div style="margin-left:20px;" class="mdl-textfield mdl-js-textfield">
+	         {{> esInput index="assistance" placeholder="Search" class="mdl-textfield__input"}}
+	      </div>
+			</center>
+
+	      <div class="wrapper">
+        	{{#ifEsIsSearching index="assistance"}}
+        		{{>spinner}}
+			{{/ifEsIsSearching}}
+			</div>
+			
+			<center>
+			<div class="mdl-grid" >
+			<table class="mdl-data-table mdl-js-data-table" >
+			   <thead>
+			   <tr>
+			   	<td class="mdl-data-table__cell--non-numeric">
+						<b>Control Number</b><br/>
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<b>Subject</b><br/>
+					</td>
+					<!--td>{{date}}</td-->
+					<td class="mdl-data-table__cell--non-numeric">
+						<b>Pest Involved</b>
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<b>Message</b>
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<b>Link</b>
+					</td>
+				 </tr>
+				</thead>
+			 <tbody>
+			{{#esEach index="assistance"}}
+				 <tr>
+				 	<td class="mdl-data-table__cell--non-numeric">
+						<b></b>{{control}}<br/>
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<b></b>{{subject}}<br/>
+					</td>
+					<!--td>{{date}}</td-->
+					<td class="mdl-data-table__cell--non-numeric">
+						<b></b>{{problem}}
+					</td>
+					<td class="mdl-data-table__cell--non-numeric">
+						<b></b>{{charLimit message}}
+					</td>
+					<td><p><a href="{{pathFor '/assistance/:_id' _id=_id}}">View Page</a></p></td>
+				 </tr>
+			{{/esEach}}
+			</tbody>
+			</table>			
+			</div>
+			</center>
+
+      <div horizontal center-justified layout>
+      	{{> esLoadMoreButton index="assistance" class="waves-effect waves-light btn"}}
+      </div>
+      
+      {{#ifEsHasNoResults index="assistance"}}
+          <div class="no-results">No results found!</div>
+      {{/ifEsHasNoResults}}
+	</div>
+	<hr/>
+	
+	
+</template>
