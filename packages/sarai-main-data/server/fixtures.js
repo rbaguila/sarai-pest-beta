@@ -119,7 +119,7 @@ Main.remove({});
       		},
       		{
       			name: 'SARAi Eskwela',
-      			href: 'http://eskwela.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319',
+      			href: 'http://portal.sarai.ph/index.php?option=com_content&view=article&id=38&Itemid=319',
       			rank: 6
       		}
       	],
@@ -128,7 +128,7 @@ Main.remove({});
       	rank: 4
       },
       {
-      	name: 'Contac Us',
+      	name: 'Contact Us',
       	href: '',
       	links: [
       		{
